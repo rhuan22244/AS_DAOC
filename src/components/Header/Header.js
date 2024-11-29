@@ -10,7 +10,7 @@
 // export default Header
 
 import './Header.css'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 function Header({ title, subtitle }) {
     return (
