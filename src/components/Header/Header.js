@@ -1,18 +1,20 @@
-import './Header.css'
+import './Header.css';
 import { Link } from 'react-router';
 
 function Header({ title, subtitle }) {
     return (
         <div className="header">
-            <span className="header-subtitle">{subtitle}</span>
+            <div className="header-subtitle">Produzido por Rhuan e Pedro</div>
             <h1 className="header-title">{title}</h1>
-            <nav>
-                <Link style={{marginRight: 20 }} to={"home"}>Home</Link>
-                <Link style={{marginRight: 20 }} to="/produtos">Produtos</Link>
-                <Link style={{marginRight: 20 }} to="contato">Contato</Link>
-            </nav>
+            <div className="nav-container">
+                <nav>
+                    <a href="http://localhost:3000/">Home</a>
+                    <Link to="/produtos">Produtos</Link>
+                    <Link to="/add-produto">Adicionar Produto</Link>
+                </nav>
+            </div>
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;
