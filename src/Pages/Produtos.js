@@ -1,11 +1,13 @@
-import { useNavigate, useParams } from "react-router"
+import { useNavigate, } from "react-router"
 import Header from "../components/Header/Header"
 function Produtos () {
 
-    const parms = useParams()
 
+    const navigate = useNavigate()
 
-
+    function handleClick(id) {
+        navigate(`/produtos/${id}`)
+    }
     return (
         <>
         
@@ -14,8 +16,6 @@ function Produtos () {
         <h1 onClick={() => handleClick(2)} style={{ marginTop: 40}}>Produto 2</h1>
         <h1 onClick={() => handleClick(3)} style={{ marginTop: 40}}>Produto 3</h1>
         <h1 onClick={() => handleClick(4)} style={{ marginTop: 40}}>Produto 4</h1>
-        
-        {/* <button onClick={levarParaHome}>Navegar para home</button> */}
 
         </>
     )

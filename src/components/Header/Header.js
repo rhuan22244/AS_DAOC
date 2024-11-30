@@ -7,9 +7,9 @@ function Header({ title, subtitle }) {
             <span className="header-subtitle">{subtitle}</span>
             <h1 className="header-title">{title}</h1>
             <nav>
-                <Link to={"home"}>Home</Link>
-                <Link to="/produtos/2">Produtos</Link>
-                <Link to="contato">Contato</Link>
+                <Link style={{marginRight: 20 }} to={"home"}>Home</Link>
+                <Link style={{marginRight: 20 }} to="/produtos">Produtos</Link>
+                <Link style={{marginRight: 20 }} to="contato">Contato</Link>
             </nav>
         </div>
     )
