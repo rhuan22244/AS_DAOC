@@ -1,14 +1,3 @@
-// function Header({title}) {
-
-//     return (
-//         <div style={{width: "100%", height: "50px"}}>
-//             <h1>{title}</h1>
-//         </div>
-//     )
-// }
-
-// export default Header
-
 import './Header.css'
 import { Link } from 'react-router';
 
@@ -19,7 +8,7 @@ function Header({ title, subtitle }) {
             <h1 className="header-title">{title}</h1>
             <nav>
                 <Link to={"home"}>Home</Link>
-                <Link to="produtos">Produtos</Link>
+                <Link to="/produtos/2">Produtos</Link>
                 <Link to="contato">Contato</Link>
             </nav>
         </div>
