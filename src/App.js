@@ -1,10 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router';
 import './App.css';
-import Home from './Pages/Home'
-import Produtos from './Pages/Produtos';
-import ProdutoAvaliacao from './Pages/ProdutosAvaliacao';
-import ProdutoDetalhe from './Pages/ProdutoDetalhe';
+import Home from './Pages/Home';
+import Produtos from './Pages/Produtos'; 
 import AdicionarProduto from './Pages/AdicionarProduto';
+import EditarProduto from './Pages/EditarProduto'; 
 
 function App() {
   return (
@@ -12,14 +11,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='produtos' element={<Produtos />} />
-          <Route path='/add-produto' element={<AdicionarProduto/>} >
-            <Route path='avaliacao' element={<ProdutoAvaliacao />} />
-            <Route path='detalhes' element={<ProdutoDetalhe />} />
-          </Route>
+          <Route path='produtos' element={<Produtos />} /> {}
+          <Route path='/add-produto' element={<AdicionarProduto />} />
+          <Route path='/editar-produto/:id' element={<EditarProduto />} /> {}
         </Routes>
       </BrowserRouter>
-
     </>
   );
 }

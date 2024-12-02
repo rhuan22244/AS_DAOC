@@ -1,0 +1,11 @@
+{
+  "produtos": [
+    {
+      "id": "4f98",
+      "nome": "agua",
+      "preco": "10",
+      "descricao": "sem gas",
+      "imagem": "https://www.imagensempng.com.br/wp-content/uploads/2021/07/Agua-mineral-Png.png"
+    }
+  ]
+}

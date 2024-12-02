@@ -8,7 +8,7 @@ function Header({ title, subtitle }) {
             <h1 className="header-title">{title}</h1>
             <div className="nav-container">
                 <nav>
-                    <a href="http://localhost:3000/">Home</a>
+                    <a href="http://localhost:3001/">Home</a>
                     <Link to="/produtos">Produtos</Link>
                     <Link to="/add-produto">Adicionar Produto</Link>
                 </nav>

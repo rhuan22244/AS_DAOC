@@ -1,11 +1,18 @@
-import { Outlet, useNavigate } from "react-router";
-import { useState } from "react";
-import Header from "../components/Header/Header";
-import './AdicionarProduto.css';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router";
+import Header from "../components/Header/Header"; // Ajuste o caminho conforme necessário
 
-function AdicionarProduto() {
+function EditarProduto() {
+    const { id } = useParams();
     const navigate = useNavigate();
     const [produto, setProduto] = useState({ nome: '', preco: '', descricao: '', imagem: '' });
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/produtos/${id}`)
+            .then(response => response.json())
+            .then(data => setProduto(data))
+            .catch(error => console.error('Erro ao buscar produto:', error));
+    }, [id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -14,8 +21,8 @@ function AdicionarProduto() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/produtos ', {
-            method: 'POST',
+        fetch(`http://localhost:3000/produtos/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -23,16 +30,16 @@ function AdicionarProduto() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Produto adicionado:', data);
+            console.log('Produto atualizado:', data);
             navigate('/produtos');
         })
-        .catch(error => console.error('Erro ao adicionar produto:', error));
+        .catch(error => console.error('Erro ao atualizar produto:', error));
     };
 
     return (
         <>
-            <Header/>
-            <h2>Adicionar Produto</h2>
+            <Header title="Editar Produto"/>
+            <h2>Editar Produto</h2>
             <form onSubmit={handleSubmit} className="produto-form">
                 <div className="form-group">
                     <label>
@@ -58,11 +65,10 @@ function AdicionarProduto() {
                         <input type="text" name="imagem" value={produto.imagem} onChange={handleChange} required />
                     </label>
                 </div>
-                <button type="submit">Adicionar Produto</button>
+                <button type="submit">Atualizar Produto</button>
             </form>
-            <Outlet />
         </>
     );
 }
 
-export default AdicionarProduto;
+export default EditarProduto;
